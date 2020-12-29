@@ -8,9 +8,9 @@ const userSelect = {
 }
 
 const userLength = document.getElementById
-    ('length')
+    ('charAmountNumber')
 const userSlider = document.getElementById
-    ('userSlider')
+    ('charAmountSlider')
 
 userLength.addEventListener('input', syncCharacterAmount)
 userSlider.addEventListener('input', syncCharacterAmount)

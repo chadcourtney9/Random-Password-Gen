@@ -15,19 +15,17 @@
   </header>
 
   <div class="container">
-
-    <div class="row">
     <h1>Password Generator</h1>
-    </div>
-    <div class="row">
+  
       <div class="result-container">
         <span id="result"></span>
         <button type="button" class="btn btn-outline-dark">Generate</button>
       </div>
+    <form>
       <div>
         <label>Password length</label>
-        <input type="range" id="userSlider" min='8' max='128' value='12'/>
-        <input type="number" id="length" min='8' max='128' value='12' />
+        <input type="range" id="charAmountSlider" min='8' max='128' value='12'/>
+        <input type="number" id="charAmountNumber" min='8' max='128' value='12' />
       </div>
         <div class="form-check form-switch col-md">
           <input class="form-check-input" type="checkbox" id="LowercaseBox"checked disabled/>
@@ -45,13 +43,8 @@
           <input class="form-check-input" type="checkbox" id="SCBox"/>
           <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Special Characters</label>
         </div>
-        <div>
-
-        </div>
-      </div>
+    </form>
   </div>
-  
-
 
   <footer>
   </footer>

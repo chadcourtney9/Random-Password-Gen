@@ -32,4 +32,12 @@ h1 {
 	width: 350px;
 	max-width: 100%;
 }
+.form {
+	display: grid;
+	grid-template-columns: auto auto;
+	row-gap: 1rem;
+	column-gap: 3rem;
+	justify-content: center;
+	align-items: center;
+  }
 
