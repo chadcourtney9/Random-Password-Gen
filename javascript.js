@@ -1,4 +1,25 @@
 
+
+const userSelect = {
+    lowercase: getLowerCase,
+    uppercase: getUpperCase,
+    numbers: getNumericChar,
+    symbols: getSpecialChar,
+}
+
+const userLength = document.getElementById
+    ('length')
+const userSlider = document.getElementById
+    ('userSlider')
+
+userLength.addEventListener('input', syncCharacterAmount)
+userSlider.addEventListener('input', syncCharacterAmount)
+
+function syncCharacterAmount(e) {
+    const value = e.target.value
+    userLength.value = value
+}
+
 //97-122 ascii
 var getLowerCase = function () {
     return getCharFromRange(122, 97)
