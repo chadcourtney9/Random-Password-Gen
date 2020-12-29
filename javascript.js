@@ -12,7 +12,7 @@ var getUpperCase = function () {
 var getNumericChar = function () {
     return getCharFromRange(57, 48)
 }
-
+//all the ascii ranges for special characters
 var specialCharRanges = [{
     max: 47,
     min: 33
@@ -27,7 +27,7 @@ var specialCharRanges = [{
     min: 123
 }
 ]
-
+// function to pull random characters within those ranges
 function getSpecialChar() {
     var x = Math.floor(Math.random() * specialCharRanges.length)
     return getCharFromRange(specialCharRanges[x].max, specialCharRanges[x].min)
@@ -40,3 +40,8 @@ function getCharFromRange(max, min) {
 console.log(
     getSpecialChar()
 )
+
+
+// if 
+// call a string
+// loop concat string
