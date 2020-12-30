@@ -16,11 +16,7 @@
 
   <div class="container">
     <h1>Password Generator</h1>
-  
-      <div class="result-container">
-        <span id="result"></span>
-        <button type="button" class="btn btn-outline-dark">Generate</button>
-      </div>
+    <h3>Password here</h3>
     <form>
       <div>
         <label>Password length</label>
@@ -28,11 +24,11 @@
         <input type="number" id="charAmountNumber" min='8' max='128' value='12' />
       </div>
         <div class="form-check form-switch col-md">
-          <input class="form-check-input" type="checkbox" id="LowercaseBox"checked disabled/>
+          <input class="form-check-input" type="checkbox" id="LowerCaseBox"checked disabled/>
           <label class="form-check-label" for="flexSwitchCheckDefault">Lowercase</label>
         </div>
         <div class="form-check form-switch  col-md">
-          <input class="form-check-input" type="checkbox" id="UppercaseBox"/>
+          <input class="form-check-input" type="checkbox" id="UpperCaseBox"/>
           <label class="form-check-label" for="flexSwitchCheckChecked">Uppercase</label>
         </div>
         <div class="form-check form-switch  col-md">
@@ -43,6 +39,8 @@
           <input class="form-check-input" type="checkbox" id="SCBox"/>
           <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Special Characters</label>
         </div>
+        <button type="submit" class="btn btn-outline-dark">Generate</button>
+      </div>
     </form>
   </div>
 
