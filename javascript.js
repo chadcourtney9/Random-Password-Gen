@@ -41,7 +41,7 @@ function generatePassword(UpperCaseBox, NumericBox, SCBox) {
     if (NumericBox) charCodes = charCodes.concat(getNumericChar)
 
     const passwordChars = []
-    for (let = 0; i < userLength; i++) {
+    for (let i = 0; i < userLength; i++) {
         const character = charCodes[Math.floor(Math.random() * charCodes.length)]
         passwordChars.push(String.fromCharCode(charCodes))
     }
@@ -85,7 +85,3 @@ function getSpecialChar() {
 function getCharFromRange(max, min) {
     return String.fromCharCode(Math.floor(Math.random() * (max - min + 1) + min))
 }
-
-console.log(
-    getSpecialChar()
-)
