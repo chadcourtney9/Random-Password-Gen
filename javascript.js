@@ -1,14 +1,11 @@
+
 const LowerCaseBoxEl = document.getElementById('LowerCaseBox')
 const UpperCaseBoxEl = document.getElementById('UpperCaseBox')
 const NumericBoxEl = document.getElementById('NumericBox')
 const SCBoxEl = document.getElementById('SCBox')
+const form = document.getElementById('PasswordGenForm')
+const passDisplay = document.getElementById('passwordDisplay')
 
-const userSelect = {
-    lowercase: getLowerCase,
-    uppercase: getUpperCase,
-    numbers: getNumericChar,
-    symbols: getSpecialChar,
-}
 //giving constants to slider and number
 const userLength = document.getElementById
     ('charAmountNumber')
@@ -22,28 +19,22 @@ userSlider.addEventListener('input', syncCharacterAmount)
 form.addEventListener('submit', e => {
     e.preventDefault()
     const characterAmount = userLength.value
-    const UpperCaseBox = LowerCaseBoxEl.checked
+    const UpperCaseBox = UpperCaseBoxEl.checked
     const NumericBox = NumericBoxEl.checked
     const SCBox = SCBoxEl.checked
-    const password = generatePassword(character)
+    const password = generatePassword(SCBox, NumericBox, UpperCaseBox, characterAmount)
+    passDisplay.innerText = password
 })
-
-function syncCharacterAmount(e) {
-    const value = e.target.value
-    userLength.value = value
-    userSlider.value = value
-}
-
+// generating password, if boxes checked include those
 function generatePassword(UpperCaseBox, NumericBox, SCBox) {
     let charCodes = getLowerCase
-    if (SCBox) charCodes = charCodes.concat(getSpecialChar)
-    if (UpperCaseBox) charCodes = charCodes.concat(getUpperCase)
-    if (NumericBox) charCodes = charCodes.concat(getNumericChar)
-
+    if (SCBox) charCodes = getSpecialChar
+    if (UpperCaseBox) charCodes = getUpperCase
+    if (NumericBox) charCodes = getNumericChar
     const passwordChars = []
     for (let i = 0; i < userLength; i++) {
         const character = charCodes[Math.floor(Math.random() * charCodes.length)]
-        passwordChars.push(String.fromCharCode(charCodes))
+        passwordChars.push(String.fromCharCode(character))
     }
     return passwordChars.join('')
 }
@@ -76,12 +67,19 @@ var specialCharRanges = [{
     min: 123
 }
 ]
+
 // function to pull random characters within those ranges
 function getSpecialChar() {
     var x = Math.floor(Math.random() * specialCharRanges.length)
     return getCharFromRange(specialCharRanges[x].max, specialCharRanges[x].min)
 }
-
+// to get random character within ranges of each ascii
 function getCharFromRange(max, min) {
     return String.fromCharCode(Math.floor(Math.random() * (max - min + 1) + min))
+}
+//to sync slider and number amount 
+function syncCharacterAmount(e) {
+    const value = e.target.value
+    userLength.value = value
+    userSlider.value = value
 }
