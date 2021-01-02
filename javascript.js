@@ -25,57 +25,32 @@ form.addEventListener('submit', e => {
     const password = generatePassword(SCBox, NumericBox, UpperCaseBox, characterAmount)
     passDisplay.innerText = password
 })
+//ascii ranges min to max
+const UPPERCASE_CHAR_CODES = arraymintomax(65, 90)
+const LOWERCASE_CHAR_CODES = arraymintomax(97, 122)
+const NUMBER_CHAR_CODES = arraymintomax(48, 57)
+const SYMBOL_CHAR_CODES = arraymintomax(33, 47).concat(
+    arraymintomax(58, 64)
+).concat(
+    arraymintomax(91, 96)
+).concat(
+    arraymintomax(123, 126)
+)
+
 // generating password, if boxes checked include those
-function generatePassword(UpperCaseBox, NumericBox, SCBox) {
-    let charCodes = getLowerCase
-    if (SCBox) charCodes = getSpecialChar
-    if (UpperCaseBox) charCodes = getUpperCase
-    if (NumericBox) charCodes = getNumericChar
-    const passwordChars = []
-    for (let i = 0; i < userLength; i++) {
-        const character = charCodes[Math.floor(Math.random() * charCodes.length)]
-        passwordChars.push(String.fromCharCode(character))
+function generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols) {
+    let charCodes = LOWERCASE_CHAR_CODES
+    if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
+    if (includeSymbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES)
+    if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+}
+
+function arraymintomax(low, high) {
+    const array = []
+    for (let i = low; i <= high; i++) {
+        array.push(i)
     }
-    return passwordChars.join('')
-}
-
-//97-122 ascii
-var getLowerCase = function () {
-    return getCharFromRange(122, 97)
-}
-
-//65-90 ascii
-var getUpperCase = function () {
-    return getCharFromRange(90, 65)
-}
-//48-57 ascii
-var getNumericChar = function () {
-    return getCharFromRange(57, 48)
-}
-//all the ascii ranges for special characters
-var specialCharRanges = [{
-    max: 47,
-    min: 33
-}, {
-    max: 64,
-    min: 58
-}, {
-    max: 96,
-    min: 91
-}, {
-    max: 126,
-    min: 123
-}
-]
-
-// function to pull random characters within those ranges
-function getSpecialChar() {
-    var x = Math.floor(Math.random() * specialCharRanges.length)
-    return getCharFromRange(specialCharRanges[x].max, specialCharRanges[x].min)
-}
-// to get random character within ranges of each ascii
-function getCharFromRange(max, min) {
-    return String.fromCharCode(Math.floor(Math.random() * (max - min + 1) + min))
+    return array
 }
 //to sync slider and number amount 
 function syncCharacterAmount(e) {

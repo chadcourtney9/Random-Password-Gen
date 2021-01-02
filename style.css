@@ -20,7 +20,7 @@ body {
 form.form {
 	display: grid;
 	grid-template-columns: auto auto;
-	row-gap: 1rem;
+	row-gap: 1.5rem;
 	column-gap: 3rem;
 	justify-content: center;
 	align-items: center;
