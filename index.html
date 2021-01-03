@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    
   </head>
 
-  <body>
-
+  <body class="body">
   <header>
     <title>Random Password Generator</title>
   </header>
@@ -23,21 +21,21 @@
         <input type="range" id="charAmountSlider" min='8' max='128' value='12'/>
         <input type="number" id="charAmountNumber" min='8' max='128' value='12' />
       </div>
-        <div class="form-check form-switch col-md">
+        <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" id="LowerCaseBox"checked disabled/>
           <label class="form-check-label" for="flexSwitchCheckDefault">Lowercase</label>
         </div>
-        <div class="form-check form-switch  col-md">
+        <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" id="UpperCaseBox"/>
-          <label class="form-check-label" for="flexSwitchCheckChecked">Uppercase</label>
+          <label class="form-check-label" for="flexSwitchCheckChecked">Special Characters</label>
         </div>
-        <div class="form-check form-switch  col-md">
+        <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" id="NumericBox"/>
           <label class="form-check-label" for="flexSwitchCheckDisabled">Numeric</label>
         </div>
-        <div class="form-check form-switch  col-md">
+        <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" id="SCBox"/>
-          <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Special Characters</label>
+          <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Uppercase</label>
         </div>
         <button type="submit" class="btn btn-outline-dark">Generate</button>
       </div>

@@ -1,13 +1,16 @@
-body {
+.body {
+	background-color: rgb(26, 24, 24);
 	margin: 0;
 	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background: linear-gradient(180deg,#faa094ff 0%,#008c76ff 100%) no-repeat;
   }
   
 .container {
 	background-color: #fbd1d3;
+	font-family: 'Courier New', Courier, monospace;
 	padding: 3rem;
 	border-radius: 1rem;
 	border: 3px solid #766dc1;
@@ -20,12 +23,12 @@ body {
 form.form {
 	display: grid;
 	grid-template-columns: auto auto;
-	row-gap: 1.5rem;
+	row-gap: 1.2rem;
 	column-gap: 3rem;
 	justify-content: center;
 	align-items: center;
   }
-  
+
 label {
 	font-weight: bold;
   }
