@@ -1,5 +1,4 @@
 
-const LowerCaseBoxEl = document.getElementById('LowerCaseBox')
 const UpperCaseBoxEl = document.getElementById('UpperCaseBox')
 const NumericBoxEl = document.getElementById('NumericBox')
 const SCBoxEl = document.getElementById('SCBox')
@@ -16,20 +15,11 @@ const userSlider = document.getElementById
 userLength.addEventListener('input', syncCharacterAmount)
 userSlider.addEventListener('input', syncCharacterAmount)
 
-form.addEventListener('submit', e => {
-    e.preventDefault()
-    const characterAmount = userLength.value
-    const UpperCaseBox = UpperCaseBoxEl.checked
-    const NumericBox = NumericBoxEl.checked
-    const SCBox = SCBoxEl.checked
-    const password = generatePassword(SCBox, NumericBox, UpperCaseBox, characterAmount)
-    passDisplay.innerText = password
-})
 //ascii ranges min to max
-const UPPERCASE_CHAR_CODES = arraymintomax(65, 90)
-const LOWERCASE_CHAR_CODES = arraymintomax(97, 122)
-const NUMBER_CHAR_CODES = arraymintomax(48, 57)
-const SYMBOL_CHAR_CODES = arraymintomax(33, 47).concat(
+const upperCharCodes = arraymintomax(65, 90)
+const lowerCharCodes = arraymintomax(97, 122)
+const numericCharCodes = arraymintomax(48, 57)
+const symbolCharCodes = arraymintomax(33, 47).concat(
     arraymintomax(58, 64)
 ).concat(
     arraymintomax(91, 96)
@@ -37,12 +27,29 @@ const SYMBOL_CHAR_CODES = arraymintomax(33, 47).concat(
     arraymintomax(123, 126)
 )
 
+form.addEventListener('submit', e => {
+    e.preventDefault()
+    const characterAmount = userLength.value
+    const upperCaseBox = UpperCaseBoxEl.checked
+    const NumericBox = NumericBoxEl.checked
+    const SCBox = SCBoxEl.checked
+    const password = generatePassword(characterAmount, SCBox, NumericBox, upperCaseBox)
+    passDisplay.innerText = password
+})
+
 // generating password, if boxes checked include those
-function generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols) {
-    let charCodes = LOWERCASE_CHAR_CODES
-    if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
-    if (includeSymbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES)
-    if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+function generatePassword(characterAmount, upperCaseBox, NumericBox, SCBox) {
+    let charCodes = lowerCharCodes
+    if (upperCaseBox) charCodes = charCodes.concat(upperCharCodes)
+    if (SCBox) charCodes = charCodes.concat(symbolCharCodes)
+    if (NumericBox) charCodes = charCodes.concat(numericCharCodes)
+
+    const passChars = []
+    for (let i = 0; i < characterAmount; i++) {
+        const characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
+        passChars.push(String.fromCharCode(characterCode))
+    }
+    return passChars.join('')
 }
 
 function arraymintomax(low, high) {
