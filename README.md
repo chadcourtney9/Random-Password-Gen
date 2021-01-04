@@ -4,6 +4,10 @@
 <a href="https://chadcourtney9.github.io/Random-Password-Gen/">See deployed page here!</a>
 
 
+# Lighthouse
+
+![img of lighthouse](https://github.com/chadcourtney9/random-password-gen/
+
 
 # Resources 
 #### To find information on how to make this page, I used common sites like W3, stackoverflow and developer.mozilla.
