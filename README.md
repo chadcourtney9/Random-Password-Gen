@@ -6,7 +6,7 @@
 
 # Lighthouse
 
-![img of lighthouse](https://github.com/chadcourtney9/random-password-gen/
+![img of lighthouse](https://github.com/chadcourtney9/Random-Password-Gen/blob/main/assets/lighthouse.PNG)
 
 
 # Resources 
