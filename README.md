@@ -3,6 +3,7 @@
 
 <a href="https://chadcourtney9.github.io/Random-Password-Gen/">See deployed page here!</a>
 
+[img of page](https://github.com/chadcourtney9/Random-Password-Gen/blob/main/assets/randompassword%20gen.PNG)
 
 # Lighthouse
 
